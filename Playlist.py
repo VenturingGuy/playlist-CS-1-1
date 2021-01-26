@@ -75,7 +75,9 @@ class Playlist:
 
   def print_songs(self):
       current_song = self.__first_song
+      counter = 0
       while current_song != None:
-          print (current_song.get_title())
+          print(f"{counter + 1}. {current_song.get_title()}")
           current_song = current_song.__next_song
+          counter += 1
   

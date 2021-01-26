@@ -23,11 +23,11 @@ class Playlist:
     song_no = 0
     while current_song != None:
         if current_song.get_title() == title:
-            return(song_no)
+            return song_no
         else:
             song_no += 1
             current_song = current_song.__next_song
-    return(-1)
+    return -1
 
 
   # TODO: Create a method called remove_song that removes a song from the playlist. This method takes one parameter, title, which is the song that should be removed. 

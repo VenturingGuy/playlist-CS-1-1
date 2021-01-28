@@ -8,10 +8,12 @@ class Playlist:
   # TODO: Create a method called add_song that creates a Song object and adds it to the playlist. This method has one parameter called title.
 
   def add_song(self, title):
+
+      # Creates a new Song object called new_song, points to the top song in the Playlist using the Song object's
+      # set_next_song method, and sets the new top of the Playlist as the newly defined Song object.
+
       new_song = Song(title)
-
-      new_song.__next_song = self.__first_song
-
+      new_song.set_next_song(self.__first_song)
       self.__first_song = new_song
 
 

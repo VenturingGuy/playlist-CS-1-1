@@ -83,14 +83,23 @@ class Playlist:
 
     def insert_song(self, title, index):
 
+        # Creates a new song object using main.py input title, creates a pointer, a previous_song variable set to none, and a counter variable set to 1.
+        # Counter is set to 1 to match with the song numbers (Playlists don't start at 0).
+
         new_song = Song(title)
         current_song = self.__first_song
         previous_song = None
         counter = 1
+
+        # If current song doesn't exist (meaning there are no songs in the Playlist), the song is automatically added to the top of the Playlist.
+
         if current_song == None:
             new_song.set_next_song(self.__first_song)
             self.__first_song = new_song
             return True
+
+        # The function goes through the Playlist until the given index is found, places the new Song at the given index, sets the former song at that poisition to be before it.
+
         while current_song != None:  
             if counter == index:
                 if previous_song != None:

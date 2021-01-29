@@ -80,4 +80,27 @@ class Playlist:
             print(f"{counter + 1}. {current_song.get_title()}")
             current_song = current_song.get_next_song()
             counter += 1
-  
+
+    def insert_song(self, title, index):
+
+        new_song = Song(title)
+        current_song = self.__first_song
+        previous_song = None
+        counter = 1
+        if current_song == None:
+            new_song.set_next_song(self.__first_song)
+            self.__first_song = new_song
+            return True
+        while current_song != None:  
+            if counter == index:
+                if previous_song != None:
+                    new_song.set_next_song(current_song)
+                    previous_song.set_next_song(new_song)
+                elif previous_song == None:
+                    new_song.set_next_song(self.__first_song)
+                    self.__first_song = new_song
+                return True
+            counter += 1
+            previous_song = current_song
+            current_song = current_song.get_next_song()
+
